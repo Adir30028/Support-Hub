@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Text</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>Edit Text</h1>
+    <form method="POST">
+        <label for="title">Title:</label>
+        <input type="text" name="title" value="{{ text.title }}" required>
+
+        <label for="description">Description:</label>
+        <textarea name="description" rows="3" required>{{ text.description }}</textarea>
+
+        <label for="content">Content:</label>
+        <textarea name="content" rows="5" required>{{ text.content }}</textarea>
+
+        <button type="submit">Update</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>

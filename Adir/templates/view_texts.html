@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Texts</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>Saved Texts</h1>
+    <ul>
+        {% for text in texts %}
+            <li>
+                <h2>{{ text.title }}</h2>
+                <p><strong>Description:</strong> {{ text.description }}</p>
+                <p><strong>Content:</strong> {{ text.content }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>

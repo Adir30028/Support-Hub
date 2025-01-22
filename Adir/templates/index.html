@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Anecdotes Support Hub</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>Anecdotes Support Hub</h1>
+
+    <h2>Useful Links</h2>
+    <ul>
+        {% for link in links %}
+            <li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <h2>Saved Texts</h2>
+    <ul>
+        {% for text in texts %}
+            <li>
+                <h3>{{ text.title }}</h3>
+                <p><strong>Description:</strong> {{ text.description }}</p>
+                <p>{{ text.content }}</p>
+                <!-- כפתור עריכה -->
+                <a href="{{ url_for('edit_text', text_id=text.id) }}">Edit</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Actions</h2>
+    <ul>
+        <li><a href="/add">Add a New Link</a></li>
+        <li><a href="/run_workflow">Run Support Workflow</a></li>
+        <li><a href="/add_text">Add Free Text</a></li>
+    </ul>
+</body>
+</html>
