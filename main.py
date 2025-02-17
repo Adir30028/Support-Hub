@@ -58,40 +58,6 @@ def add_link():
             flash("Please provide both name and URL!", "danger")
     return render_template("add_link.html")
 
-@app.route("/run_workflow", methods=["GET", "POST"])
-def run_workflow():
-    if request.method == "POST":
-        environment = request.form.get("environment")
-        customer_id = request.form.get("customer_id")
-        customer_password = request.form.get("customer_password")
-        support_email = request.form.get("support_email")
-
-        url = f"https://api.github.com/repos/{GITHUB_REPO_URL}/actions/workflows/{WORKFLOW_ID}/dispatches"
-        headers = {
-            "Authorization": f"Bearer {GITHUB_TOKEN}",
-            "Accept": "application/vnd.github.v3+json"
-        }
-        data = {
-            "ref": "main",
-            "inputs": {
-                "environment": environment,
-                "customer_id": customer_id,
-                "customer_password": customer_password,
-                "support_email": support_email,
-            }
-        }
-
-        response = requests.post(url, headers=headers, json=data)
-
-        if response.status_code == 204:
-            flash("Workflow triggered successfully!", "success")
-        else:
-            flash(f"Failed to trigger workflow: {response.text}", "danger")
-
-        return redirect("/run_workflow")
-
-    return render_template("run_workflow.html")
-
 @app.route("/add_text", methods=["GET", "POST"])
 def add_text():
     if request.method == "POST":
