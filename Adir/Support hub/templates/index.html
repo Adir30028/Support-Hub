@@ -19,8 +19,8 @@
         {% for text in texts %}
             <li>
                 <h3>{{ text.title }}</h3>
-                <p><strong>Description:</strong> {{ text.description }}</p>
-                <p>{{ text.content }}</p>
+                <p><strong>Description:</strong> <br><br>{{ text.description }}</p>
+                    <p style="white-space: pre-wrap;"><strong>Content:</strong> <br><br>{{ text.content }}</p>
                 <!-- כפתור עריכה -->
                 <a href="{{ url_for('edit_text', text_id=text.id) }}">Edit</a>
             </li>

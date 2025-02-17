@@ -130,6 +130,6 @@ def edit_text(text_id):
 def view_texts():
     texts = FreeText.query.all()
     return render_template("view_texts.html", texts=texts)
-##conection test 2
+
 if __name__ == "__main__":
     app.run(debug=True)

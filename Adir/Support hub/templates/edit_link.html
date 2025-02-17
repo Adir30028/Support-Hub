@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Link</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <h1>Edit Link</h1>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" value="{{ link.name }}" required>
+        <label for="url">URL:</label>
+        <input type="url" name="url" value="{{ link.url }}" required>
+        <button type="submit">Update</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>
