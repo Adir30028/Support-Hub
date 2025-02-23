@@ -4,7 +4,7 @@ FROM python:3.9
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copy the current directory contents into the container
 COPY . .
 
 # Install required dependencies
@@ -18,9 +18,7 @@ ENV FLASK_APP=main.py
 ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_ENV=production
 
-# Ensure the database is created before running
-RUN python -c "from main import app, db; with app.app_context(): db.create_all()"
+# No need to run db.create_all() here, it's already in main.py
 
 # Command to run the application
 CMD ["flask", "run"]
-
