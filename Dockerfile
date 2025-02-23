@@ -19,7 +19,7 @@ ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_ENV=production
 
 # Ensure the database is created before running
-RUN python -c "from app import db; db.create_all()"
+RUN python -c "from main import db; db.create_all()"
 
 # Command to run the application
 CMD ["flask", "run"]
