@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = env.DOCKER_IMAGE
-        DOCKER_TAG = env.DOCKER_TAG
-        DOCKER_HUB_USER = env.DOCKER_HUB_USER
-        DOCKER_HUB_PASS = env.DOCKER_HUB_PASS
-        ANSIBLE_HOST = env.ANSIBLE_HOST
-        ANSIBLE_USER = env.ANSIBLE_USER
-        SSH_PRIVATE_KEY = env.SSH_PRIVATE_KEY
-        GIT_URL = env.GIT_URL
+    DOCKER_IMAGE = "${env.DOCKER_IMAGE}"
+    DOCKER_TAG = "${env.DOCKER_TAG}"
+    DOCKER_HUB_USER = credentials('dockerhub-user')
+    DOCKER_HUB_PASS = credentials('dockerhub-pass')
+    ANSIBLE_HOST = "${env.ANSIBLE_HOST}"
+    ANSIBLE_USER = "${env.ANSIBLE_USER}"
+    SSH_PRIVATE_KEY = credentials('ansible-ssh-key')
+    GIT_URL = "${env.GIT_URL}"
     }
 
     stages {
