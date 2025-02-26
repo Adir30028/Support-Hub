@@ -48,11 +48,11 @@ pipeline {
                 script {
                     writeFile file: 'inventory.ini', text: """
                     [webservers]
-                    ${ANSIBLE_HOST} ansible_user=${ANSIBLE_USER} ansible_ssh_private_key_file=/home/jenkins/.ssh/2025-key.pem
+                    ${ANSIBLE_HOST} ansible_user=${ANSIBLE_USER} ansible_ssh_private_key_file=/var/lib/jenkins/.ssh/
                     """
 
                     sh """
-                    ssh-agent bash -c 'ssh-add /home/jenkins/.ssh/2025-key.pem && \
+                    ssh-agent bash -c 'ssh-add /var/lib/jenkins/.ssh/ && \
                     ansible-playbook -i inventory.ini deploy-playbook.yml'
                     """
                 }
