@@ -8,7 +8,7 @@ pipeline {
     DOCKER_HUB_PASS = credentials('dockerhub-pass')
     ANSIBLE_HOST = "${env.ANSIBLE_HOST}"
     ANSIBLE_USER = "${env.ANSIBLE_USER}"
-    SSH_PRIVATE_KEY = credentials('ansible-ssh-key')
+ //   SSH_PRIVATE_KEY = credentials('ansible-ssh-key')
     GIT_URL = "${env.GIT_URL}"
     }
 
@@ -48,7 +48,7 @@ pipeline {
                 script {
                     writeFile file: 'inventory.ini', text: """
                     [webservers]
-                    ${ANSIBLE_HOST} ansible_user=${ANSIBLE_USER} ansible_ssh_private_key_file=/home/jenkins/.ssh/id_rsa
+                    ${ANSIBLE_HOST} ansible_user=${ANSIBLE_USER} ansible_ssh_private_key_file=/home/jenkins/.ssh/2025-key.pem
                     """
 
                     sh """
