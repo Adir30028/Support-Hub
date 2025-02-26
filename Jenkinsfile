@@ -52,7 +52,7 @@ pipeline {
                     """
 
                     sh """
-                    ssh-agent bash -c 'ssh-add /home/jenkins/.ssh/id_rsa && \
+                    ssh-agent bash -c 'ssh-add /home/jenkins/.ssh/2025-key.pem && \
                     ansible-playbook -i inventory.ini deploy-playbook.yml'
                     """
                 }
