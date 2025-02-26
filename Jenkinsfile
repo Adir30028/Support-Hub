@@ -53,7 +53,7 @@ pipeline {
 
                     sh """
                     ssh-agent bash -c 'ssh-add /var/lib/jenkins/.ssh/2025-key.pem && \
-                    ansible-playbook -i inventory.ini playbook/deploy-playbook.yml'
+                    ansible-playbook -i inventory.ini ./playbook/deploy-playbook.yml'
                     """
                 }
             }
